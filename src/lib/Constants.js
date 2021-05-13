@@ -137,16 +137,15 @@ module.exports = {
    paymentMethodFail: (body) => `Unable to get billing source. ${body}`,
    invalidTokenOnSnipe: (code, from, author, end) => `Invalid Token | Code: ${chalk.bold(code)} | ${from} | ${author} | ${end}`,
    phinError: (err, code, from, author, end) => `${err} | Code: ${chalk.bold(code)} | ${from} | ${author} | ${end}`,
-   unknownCode: (code, from, author, end) => `Invalid Code | Code: ${chalk.bold(code)} | ${from} | ${author} | ${end}`,
-   alreadyRedeemedCode: (code, from, author, end) => `Already Redeemed | Code: ${chalk.bold(code)} | ${from} | ${author} | ${end}`,
-   snipedCode: (code, type, from, author, end) => `Success | Code: ${chalk.bold(code)} | ${type} | ${from} | ${author} | ${end}`,
+   unknownCode: (end) => `Attempted to claim code in | Code: ${chalk.bold(code)} | ${from} | ${author} | ${end}`,
+   alreadyRedeemedCode: (end) => `Attempted to claim code in ${timeTook}.`,
+   snipedCode: (code, type, from, author, end) => `Claimed | ${type} | in ${timeTook}.`,
    duplicateFound: (code, location, author) => `Avoiding Duplicate | Code: ${chalk.bold(code)} | ${location} | ${author}`,
    webhookTypes: ['codeInvalid', 'codeAlreadyRedeemed', 'codeSuccess', 'giveawayEntered', 'giveawayWin', 'inviteJoin'],
    fields: {
-      codeFail: (time, code, location) => [
+      codeFail: (time) => [
          { key: 'Time Taken', value: time },
-         { key: 'Code', value: code },
-         { key: 'Location', value: location },
+        
       ],
       codeSuccess: (time, type, code, location) => [
          { key: 'Time Taken', value: time, },
