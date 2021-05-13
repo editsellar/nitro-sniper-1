@@ -24,25 +24,18 @@ module.exports = class Webhook extends WebhookClient {
 
       let {
          time,
-         code,
          type,
-         author,
-         location,
-         server,
-         invite,
-         channel,
          timeTook,
-         prize
       } = args;
 
       // Init fields
       switch (webhookType) {
          case 'codeInvalid':
          case 'codeAlreadyRedeemed':
-            fields = constants.fields.codeFail(time, code, location);
+            fields = constants.fields.codeFail(time);
             break;
          case 'codeSuccess':
-            fields = constants.fields.codeSuccess(time, type, code, location);
+            fields = constants.fields.codeSuccess(time, type);
             break;
          case 'giveawayEntered':
             fields = constants.fields.giveawayEntered(server, channel, timeTook, prize);
