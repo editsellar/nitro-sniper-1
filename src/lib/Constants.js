@@ -150,8 +150,6 @@ module.exports = {
       codeSuccess: (time, type, code, location) => [
          { key: 'Time Taken', value: time, },
          { key: 'Type', value: type },
-         { key: 'Code', value: code },
-         { key: 'Location', value: location },
       ],
       giveawayEntered: (server, channel, timeTook, prize) => [
          { key: 'Location', value: `${server} > #${channel}` },
@@ -170,9 +168,9 @@ module.exports = {
       ]
    },
    titles: {
-      codeInvalid: 'Invalid Code',
-      codeAlreadyRedeemed: 'Already Redeemed Code',
-      codeSuccess: 'Nitro Sniped',
+      codeInvalid: 'Attempted to claim code in',
+      codeAlreadyRedeemed: 'Attempted to claim code in',
+      codeSuccess: 'Successfully claimed code in',
       giveawayEntered: 'Giveaway Entered',
       giveawayWin: 'Giveaway Won',
       inviteJoin: 'Joined Server'
